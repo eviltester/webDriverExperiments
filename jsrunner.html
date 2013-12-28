@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Runner</title>
+</head>
+</body>
+<!-- ASCIIMATION : jsrunner (begin) http://asciimator.net/asciimator#ASCIImator3-->
+<table style="cursor:crosshair;" cellpadding=0 cellspacing=0 onmouseover="window.status='made in asciimator.net';" onmouseout="window.status='';" onclick="window.location.href='http://www.asciimator.net';">
+<tr><td>
+<div id="jsrunner_div">
+<pre id="jsrunner_id">&nbsp;</pre>
+</div>
+</td></tr>
+</table>
+<script>
+function run_jsrunner(){
+  title="";
+  ffamily="courier new";
+  fsize=12;
+  bgcolor="#FFFFFF";
+  fcolor="#000000";
+  speed=100;
+  looped=true;
+  fwidth=20;
+  fheight=10;
+  lh="120%";
+  document.getElementById("jsrunner_id").title=title;
+  if(document.getElementById("jsrunner_id")){
+    output=document.getElementById("jsrunner_id").style;
+    outputdiv=document.getElementById("jsrunner_div").style;
+    output.fontFamily=ffamily;
+    output.fontSize=fsize;
+    output.backgroundColor=bgcolor;
+    output.color=fcolor;
+    output.lineHeight=lh;
+    output.height=outputdiv.height=fheight*fsize*1.2;
+    output.width=outputdiv.width=fwidth*fsize*0.63;
+    }
+  if (navigator.userAgent.match(/MSIE/) && !navigator.userAgent.match(/Opera/)){
+    for (i=0; i<jsrunner.length; i++){
+    jsrunner[i]=jsrunner[i].replace(/\n/g,'\n\r');
+    }
+  }
+  fr_jsrunner=0;
+  setInterval(animate_jsrunner,speed,fr_jsrunner);
+}
+
+function animate_jsrunner(){
+  if (fr_jsrunner>jsrunner.length-1){
+    fr_jsrunner=0;
+  }
+  document.getElementById("jsrunner_id").childNodes[0].data=jsrunner[fr_jsrunner];
+  fr_jsrunner++;
+}
+
+var jsrunner= new Array();
+jsrunner[0]="       (+)\n       \/|\\_\n       \\+\n      _\/ \\\n     \'    |_";
+jsrunner[1]="       (+)\n       \/|\\\n       |+ \\\n     __\/ \\\n         |_";
+jsrunner[2]="       (+)\n      ,-|\\\n      | +|\n     __\/ \\\n         \/_";
+jsrunner[3]="       (+)\n      ,-|\n      | +\\\n      _|\\\n        \/_";
+jsrunner[4]="       (+)\n      ,-|\n      | +\\\n       |\\\n       \'\/_";
+jsrunner[5]="       (+)\n       \/|\n       \\+\\\n       |\\\n       \'\/_";
+run_jsrunner();
+</script>
+<!-- ASCIIMATION : jsrunner (end)-->
+</body>
+</html>
