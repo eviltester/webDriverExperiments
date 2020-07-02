@@ -24,9 +24,7 @@ public class AaarghFirefoxWhyDostThouMockMe {
     @Test
     public void simpleUserInteractionInFirefox(){
 
-        FirefoxProfile profile = new FirefoxProfile();
-        profile.setEnableNativeEvents(true);
-        driver = new FirefoxDriver(profile);
+        driver = new FirefoxDriver();
 
         checkSimpleCtrlBInteractionWorks();
 

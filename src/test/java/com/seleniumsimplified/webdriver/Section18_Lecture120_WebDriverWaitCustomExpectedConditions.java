@@ -9,12 +9,9 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.common.base.Predicate;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
@@ -26,19 +23,18 @@ public class Section18_Lecture120_WebDriverWaitCustomExpectedConditions {
 	
 	@BeforeClass
 	public static void setUp(){
-		FirefoxProfile profile = new FirefoxProfile();
-		profile.setPreference("network.proxy.type", 0);
-		driver = new FirefoxDriver(profile);
+		driver = new FirefoxDriver();
 	}
 	
 	@Before
 	public void navigateToSite(){
 		driver.get(basicAjaxSite);
 		
-		wait = new WebDriverWait(driver, 10, 50);
+		wait = new WebDriverWait(driver, 10);
 	}
 
 
+	@Ignore
     @Test
     public void doEverythingALot(){
 
@@ -123,9 +119,9 @@ public class Section18_Lecture120_WebDriverWaitCustomExpectedConditions {
 		public SelectContainsText(final By comboFindBy, final String textToFind){
 			this.findBy = comboFindBy;
 			this.textToFind = textToFind;
-			
 		}
 
+		@Override
 		public Boolean apply(WebDriver driver) {
 			WebElement comboBox2 = driver.findElement(this.findBy);
 
@@ -158,8 +154,6 @@ public class Section18_Lecture120_WebDriverWaitCustomExpectedConditions {
 		public String toString(){
 			return "select " + this.findBy + "to contain " + this.textToFind;
 		}
-		
-		
 	}
 	
 
